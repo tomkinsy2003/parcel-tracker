@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - DHL Express</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class="logo">DHL<span> Express</span> <span style="font-size:0.9rem; margin-left:10px;">Admin</span></div>
+    <nav>
+      <a href="index.html">Track</a>
+      <a href="admin.html" class="active">Admin</a>
+      <a href="#" id="logoutBtn" style="display:none;">Logout</a>
+    </nav>
+  </header>
+
+  <main class="admin-container">
+    <!-- Login Form -->
+    <div id="loginSection" class="login-box">
+      <h2 style="margin-bottom:1.5rem;">Admin Login</h2>
+      <div style="margin-bottom:1rem;">
+        <input type="password" id="passwordInput" placeholder="Enter admin password" style="width:100%; padding:1rem; border-radius:40px; border:2px solid #e0e0e0;">
+      </div>
+      <button class="btn" id="loginBtn" style="width:100%;">Login</button>
+      <div id="loginError" class="error-message hidden" style="margin-top:1rem;"></div>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboardSection" class="hidden">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem;">
+        <h2>Shipment Dashboard</h2>
+        <button class="btn btn-secondary" id="newParcelBtn">+ New Parcel</button>
+      </div>
+
+      <!-- New Parcel Form -->
+      <div id="newParcelForm" class="result-card hidden" style="margin-bottom:2rem;">
+        <h3 style="margin-bottom:1.5rem;">Create New Shipment</h3>
+        <div style="display:grid; gap:1rem;">
+          <input type="text" id="senderInput" placeholder="Sender Name" style="padding:0.8rem; border-radius:8px; border:1px solid #ddd;">
+          <input type="text" id="receiverInput" placeholder="Receiver Name" style="padding:0.8rem; border-radius:8px; border:1px solid #ddd;">
+          <div style="display:flex; gap:1rem;">
+            <button class="btn" id="createParcelBtn">Create</button>
+            <button class="btn btn-secondary" id="cancelNewBtn">Cancel</button>
+          </div>
+        </div>
+        <div id="createError" class="error-message hidden" style="margin-top:1rem;"></div>
+      </div>
+
+      <!-- Parcels Table -->
+      <div style="overflow-x:auto;">
+        <table class="parcel-table">
+          <thead>
+            <tr>
+              <th>Tracking #</th>
+              <th>Sender</th>
+              <th>Receiver</th>
+              <th>Status</th>
+              <th>Created</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="parcelsTableBody"></tbody>
+        </table>
+      </div>
+      <div id="dashboardLoader" class="loader hidden"></div>
+    </div>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
